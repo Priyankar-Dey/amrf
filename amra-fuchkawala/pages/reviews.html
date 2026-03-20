@@ -44,7 +44,7 @@
     }
     .rating-number span { color: var(--primary); }
     .rating-stars-big { display: flex; gap: 6px; justify-content: center; margin: 8px 0; font-size: 1.5rem; color: var(--accent); }
-    .rating-count { font-size: 0.85rem; color: var(--text-muted); }
+    .rating-count { font-size: 0.85rem; color: rgba(249,244,239,0.55); }
     .rating-bars { flex: 1; display: flex; flex-direction: column; gap: 10px; }
     .rating-bar-row { display: flex; align-items: center; gap: 14px; }
     .rating-bar-label { font-size: 0.85rem; font-weight: 600; color: var(--dark); width: 40px; flex-shrink: 0; }
@@ -59,7 +59,7 @@
       border-radius: 99px;
       transition: width 1s ease;
     }
-    .rating-bar-pct { font-size: 0.8rem; color: var(--text-muted); width: 36px; flex-shrink: 0; text-align: right; }
+    .rating-bar-pct { font-size: 0.8rem; color: rgba(249,244,239,0.55); width: 36px; flex-shrink: 0; text-align: right; }
 
     /* ── Reviews Grid ── */
     .reviews-grid {
@@ -89,9 +89,9 @@
       flex-shrink: 0;
     }
     .review-name { font-weight: 700; font-size: 0.95rem; color: var(--dark); }
-    .review-date { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+    .review-date { font-size: 0.75rem; color: rgba(249,244,239,0.55); margin-top: 2px; }
     .review-stars { display: flex; gap: 3px; margin-bottom: 12px; color: var(--accent); font-size: 0.9rem; }
-    .review-text { font-size: 0.88rem; color: var(--text-muted); line-height: 1.78; flex: 1; font-style: italic; }
+    .review-text { font-size: 0.88rem; color: rgba(249,244,239,0.55); line-height: 1.78; flex: 1; font-style: italic; }
     .review-tag {
       display: inline-block;
       margin-top: 14px;
@@ -129,7 +129,7 @@
       border-radius: var(--radius-sm);
       font-family: var(--font-body);
       font-size: 0.9rem;
-      color: var(--text-main);
+      color: rgba(249,244,239,0.85);
       background: var(--dark-3);
       transition: var(--transition);
       outline: none;
@@ -157,7 +157,7 @@
     }
     .form-success-icon { font-size: 3rem; margin-bottom: 12px; }
     .form-success h3 { font-weight: 700; color: var(--dark); margin-bottom: 8px; }
-    .form-success p { color: var(--text-muted); font-size: 0.9rem; }
+    .form-success p { color: rgba(249,244,239,0.55); font-size: 0.9rem; }
 
     @media (max-width: 1024px) { .reviews-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 768px) {
@@ -256,80 +256,80 @@
 
         <div class="review-card reveal reveal-delay-1">
           <div class="review-top">
-            <div class="review-avatar" style="background:var(--primary);">র</div>
+            <div class="review-avatar" style="background:#E76F51;">R</div>
             <div>
-              <div class="review-name">Rahul Das</div>
-              <div class="review-date">March 2025</div>
+              <div class="review-name">Rajul Khan</div>
+              <div class="review-date">3 months ago · Google</div>
             </div>
           </div>
-          <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <div class="review-text">"Best fuchka I've had in years. The tamarind water is perfectly balanced — not too sour, not too sweet. A must visit for anyone who loves street food!"</div>
-          <div class="review-tag">জলভরা ফুচকা</div>
+          <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+          <div class="review-text">"It is a very good point for eating fuchka — they maintain hygiene really well. The place is clean, the ingredients are fresh, and you can see the care that goes into every plate."</div>
+          <div class="review-tag">Jol Fuchka</div>
         </div>
 
         <div class="review-card reveal reveal-delay-2">
           <div class="review-top">
-            <div class="review-avatar" style="background:var(--accent);color:var(--dark);">প</div>
+            <div class="review-avatar" style="background:#2A9D8F;">A</div>
             <div>
-              <div class="review-name">Priya Chatterjee</div>
-              <div class="review-date">February 2025</div>
+              <div class="review-name">Anupam Das</div>
+              <div class="review-date">3 months ago · Google</div>
             </div>
           </div>
-          <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <div class="review-text">"The dahi fuchka is absolutely divine. I bring all my friends here whenever they visit the city. Consistent quality, every single time. Never disappointed!"</div>
-          <div class="review-tag">দই ফুচকা</div>
+          <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+          <div class="review-text">"Wonderful service and taste! The staff is friendly and the food is consistently good. Great value for money at around ₹100 per person. Definitely coming back again!"</div>
+          <div class="review-tag">₹100 per person</div>
         </div>
 
         <div class="review-card reveal reveal-delay-3">
           <div class="review-top">
-            <div class="review-avatar" style="background:#2A9D8F;">অ</div>
+            <div class="review-avatar" style="background:var(--primary);">I</div>
             <div>
-              <div class="review-name">Arnab Roy</div>
-              <div class="review-date">January 2025</div>
+              <div class="review-name">Infozraba India</div>
+              <div class="review-date">3 months ago · Google</div>
             </div>
           </div>
-          <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
-          <div class="review-text">"Love the masala fuchka — genuinely spicy, which is rare. Fresh ingredients every time. আমরা Fuchkawala is my go-to spot after college every evening."</div>
-          <div class="review-tag">মশলা ফুচকা</div>
+          <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <div class="review-text">"Best Fuchka in Town — no contest! The flavours are authentic, the tamarind water is perfectly spiced, and the experience is exactly what street food should feel like. Highly recommended!"</div>
+          <div class="review-tag">Best in Town 🏆</div>
         </div>
 
         <div class="review-card reveal reveal-delay-1">
           <div class="review-top">
-            <div class="review-avatar" style="background:#E76F51;">স</div>
+            <div class="review-avatar" style="background:#457B9D;">M</div>
             <div>
-              <div class="review-name">Sanjay Mondal</div>
-              <div class="review-date">December 2024</div>
+              <div class="review-name">Moumita Das</div>
+              <div class="review-date">3 months ago · Google</div>
             </div>
           </div>
-          <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <div class="review-text">"I've been eating here for 5 years. The taste never changes and that's the biggest compliment I can give. Uncle's secret recipe is truly special."</div>
-          <div class="review-tag">Regular Customer</div>
+          <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+          <div class="review-text">"Just falafel — read them, read them, read them! The fuchka here is something else entirely. Priced well at ₹300–400 for a full meal. Fresh ingredients, quick service, absolutely worth every bite."</div>
+          <div class="review-tag">₹300–400 for two</div>
         </div>
 
         <div class="review-card reveal reveal-delay-2">
           <div class="review-top">
-            <div class="review-avatar" style="background:#457B9D;">দ</div>
+            <div class="review-avatar" style="background:#C0392B;">A</div>
             <div>
-              <div class="review-name">Debjani Sen</div>
-              <div class="review-date">November 2024</div>
+              <div class="review-name">Ananya Bhattacharya</div>
+              <div class="review-date">3 weeks ago · Google · NEW</div>
             </div>
           </div>
           <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <div class="review-text">"The cheese fuchka is a game changer! I was skeptical at first but it works beautifully. The service is always fast and the stall is kept very clean."</div>
-          <div class="review-tag">চিজ ফুচকা</div>
+          <div class="review-text">"Amazing experience! Super affordable at just ₹100 per person. The fuchka is fresh, the chutney is to die for, and the service is warm and quick. One of the best street food spots in Durgapur!"</div>
+          <div class="review-tag">₹100 per person</div>
         </div>
 
         <div class="review-card reveal reveal-delay-3">
           <div class="review-top">
-            <div class="review-avatar" style="background:#6B4226;">ক</div>
+            <div class="review-avatar" style="background:#6B4226;">R</div>
             <div>
-              <div class="review-name">Kiran Ghosh</div>
-              <div class="review-date">October 2024</div>
+              <div class="review-name">Rahul Bhattacharya</div>
+              <div class="review-date">3 weeks ago · Google · NEW</div>
             </div>
           </div>
-          <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
-          <div class="review-text">"Ordered the party platter for my daughter's birthday gathering. 30 pieces, all fresh, delivered on time. Everyone loved it. Will definitely order again!"</div>
-          <div class="review-tag">পার্টি প্লেটার</div>
+          <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <div class="review-text">"The food here is outstanding — fresh, flavourful and prepared with real care. The service is excellent and the stall is well maintained. আমরা Fuchkawala is a must visit in City Centre, Durgapur!"</div>
+          <div class="review-tag">City Centre, Durgapur</div>
         </div>
 
       </div>
