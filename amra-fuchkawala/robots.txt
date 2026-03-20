@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /assets/js/
+Disallow: /_headers
+
+Sitemap: https://amrafuchkawala.netlify.app/sitemap.xml
