@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About আমরা Fuchkawala — Our story, our passion, and the people behind every fuchka." />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>About Us — আমরা Fuchkawala</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .navbar { background: rgba(28,15,0,0.96); backdrop-filter: blur(16px); }
+    body { background: var(--dark); }
+    .section { background: var(--dark); }
+    .section-title { color: var(--text-light); }
+    .section-subtitle { color: rgba(249,244,239,0.55); }
+
+    /* ── Story Section ── */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .story-visual {
+      position: relative;
+    }
+    .story-card-main {
+      background: var(--dark);
+      border-radius: var(--radius-lg);
+      height: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .story-card-main::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 70%, rgba(200,90,0,0.15) 0%, transparent 60%);
+    }
+    .story-big-emoji { font-size: 8rem; position: relative; z-index: 1; }
+    .story-card-label {
+      font-family: var(--font-bengali);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-light);
+      margin-top: 12px;
+      position: relative; z-index: 1;
+    }
+    .story-card-sub {
+      font-size: 0.82rem;
+      color: rgba(249,244,239,0.55);
+      position: relative; z-index: 1;
+    }
+    .story-stat-card {
+      position: absolute;
+      background: var(--dark-3);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+    }
+    .story-stat-num {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+    }
+    .story-stat-label { font-size: 0.75rem; color: rgba(249,244,239,0.55); margin-top: 2px; }
+    .sc-1 { bottom: -20px; left: -20px; }
+    .sc-2 { top: -16px; right: -16px; }
+
+    .story-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(200,90,0,0.1);
+      border: 1px solid rgba(200,90,0,0.2);
+      border-radius: 99px;
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    .story-text h2 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
+    .story-text h2 span { color: var(--primary); }
+    .story-text p {
+      font-size: 1rem;
+      color: rgba(249,244,239,0.55);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+    .story-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .story-highlight {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.92rem;
+      color: rgba(249,244,239,0.85);
+      font-weight: 500;
+    }
+    .story-highlight-icon {
+      width: 32px; height: 32px;
+      background: rgba(200,90,0,0.2);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary);
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    /* ── Values ── */
+    .values-section { background: var(--dark-2); }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .value-card {
+      background: var(--dark-3);
+      border-radius: var(--radius-md);
+      padding: 36px 28px;
+      border: 1.5px solid var(--border);
+      transition: var(--transition);
+      text-align: center;
+    }
+    .value-card:hover {
+      border-color: rgba(200,90,0,0.25);
+      transform: translateY(-4px);
+    }
+    .value-icon {
+      width: 64px; height: 64px;
+      background: rgba(200,90,0,0.12);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin: 0 auto 20px;
+    }
+    .value-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+    .value-desc { font-size: 0.88rem; color: rgba(249,244,239,0.55); line-height: 1.75; }
+
+    /* ── Team ── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .team-card {
+      background: var(--dark-3);
+      border-radius: var(--radius-md);
+      padding: 32px 24px;
+      text-align: center;
+      border: 1.5px solid var(--border);
+      transition: var(--transition);
+    }
+    .team-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+    .team-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      color: #fff;
+      font-family: var(--font-bengali);
+      font-weight: 700;
+      margin: 0 auto 16px;
+      border: 3px solid var(--light-2);
+    }
+    .team-name { font-weight: 700; font-size: 1.05rem; color: var(--text-light); margin-bottom: 4px; }
+    .team-role { font-size: 0.82rem; color: var(--primary); font-weight: 600; margin-bottom: 12px; }
+    .team-bio { font-size: 0.85rem; color: rgba(249,244,239,0.55); line-height: 1.7; }
+
+    /* ── Timeline ── */
+    .timeline { position: relative; padding: 0 0 0 32px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px; top: 8px; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary), var(--accent), transparent);
+    }
+    .timeline-item { position: relative; margin-bottom: 40px; }
+    .timeline-dot {
+      position: absolute;
+      left: -28px; top: 6px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid var(--light);
+      box-shadow: 0 0 0 3px rgba(200,90,0,0.2);
+    }
+    .timeline-year {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .timeline-title { font-weight: 700; font-size: 1rem; color: var(--text-light); margin-bottom: 6px; }
+    .timeline-desc { font-size: 0.88rem; color: rgba(249,244,239,0.55); line-height: 1.7; }
+
+    @media (max-width: 1024px) {
+      .story-grid { grid-template-columns: 1fr; gap: 48px; }
+      .story-visual { display: none; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .values-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo" style="padding:4px 0;">
+        <img src="../assets/images/logo-nav-white.png" alt="আমরা Fuchkawala" style="height:36px;width:auto;object-fit:contain;display:block;" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html" class="nav-link">Home</a></li>
+        <li><a href="menu.html" class="nav-link">Menu</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="about.html" class="nav-link active">About</a></li>
+        <li><a href="reviews.html" class="nav-link">Reviews</a></li>
+        <li><a href="contact.html" class="nav-link nav-cta">Contact Us</a></li>
+      </ul>
+      <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+    <div class="nav-mobile" id="mobileMenu" style="background:#1C0F00;border-top:1px solid rgba(255,255,255,0.1);">
+      <a href="../index.html" class="nav-link" style="color:#FDF6EE;padding:14px 16px;display:block;font-size:1rem;font-weight:500;">Home</a>
+      <a href="menu.html" class="nav-link" style="color:#FDF6EE;padding:14px 16px;display:block;font-size:1rem;font-weight:500;">Menu</a>
+      <a href="gallery.html" class="nav-link" style="color:#FDF6EE;padding:14px 16px;display:block;font-size:1rem;font-weight:500;">Gallery</a>
+      <a href="about.html" class="nav-link" style="color:#FDF6EE;padding:14px 16px;display:block;font-size:1rem;font-weight:500;">About</a>
+      <a href="reviews.html" class="nav-link" style="color:#FDF6EE;padding:14px 16px;display:block;font-size:1rem;font-weight:500;">Reviews</a>
+      <a href="contact.html" class="nav-link nav-cta" style="color:#fff;padding:14px 16px;display:block;font-size:1rem;font-weight:700;background:#C85A00;border-radius:99px;text-align:center;margin-top:8px;">Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div style="position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%, rgba(200,90,0,0.12) 0%, transparent 50%);pointer-events:none;"></div>
+    <div class="container">
+      <div class="page-hero-label">Our Story</div>
+      <h1>About <span>Us</span></h1>
+      <p>A family tradition turned into the city's favourite fuchka destination.</p>
+    </div>
+  </section>
+
+  <!-- STORY SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-visual">
+          <div class="story-card-main">
+            <div class="story-big-emoji">🍢</div>
+            <div class="story-card-label">আমরা Fuchkawala</div>
+            <div class="story-card-sub">Est. 2015 · City's Favourite</div>
+          </div>
+          <div class="story-stat-card sc-1 reveal reveal-delay-2">
+            <div class="story-stat-num">10+</div>
+            <div class="story-stat-label">Years of Service</div>
+          </div>
+          <div class="story-stat-card sc-2 reveal reveal-delay-3">
+            <div class="story-stat-num">500+</div>
+            <div class="story-stat-label">Daily Customers</div>
+          </div>
+        </div>
+        <div class="story-text reveal">
+          <div class="story-tag"><i class="fa-solid fa-heart"></i> Our Journey</div>
+          <h2>From a Family Recipe to a <span>City Favourite</span></h2>
+          <p>
+            It all started in our grandmother's kitchen — a secret recipe for tamarind water that made
+            every fuchka unforgettable. What began as a small weekend stall has grown into one of
+            the city's most beloved street food destinations.
+          </p>
+          <p>
+            আমরা Fuchkawala was founded with one simple belief: great street food deserves the same
+            respect as any fine dish. Fresh ingredients, daily preparation, and genuine love for the
+            craft — that's what separates us from the rest.
+          </p>
+          <p>
+            Today, we serve hundreds of customers every day, but every fuchka is still made with the
+            same care as that very first plate.
+          </p>
+          <div class="story-highlights">
+            <div class="story-highlight">
+              <div class="story-highlight-icon"><i class="fa-solid fa-check"></i></div>
+              Fresh ingredients sourced every morning, no exceptions
+            </div>
+            <div class="story-highlight">
+              <div class="story-highlight-icon"><i class="fa-solid fa-check"></i></div>
+              Original family recipe, unchanged since day one
+            </div>
+            <div class="story-highlight">
+              <div class="story-highlight-icon"><i class="fa-solid fa-check"></i></div>
+              Hygienically prepared — clean hands, clean stall, always
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section values-section">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="section-label" style="color:var(--primary);">What Drives Us</div>
+        <h2 class="section-title" style="color:var(--text-light);">Our <span>Values</span></h2>
+        <p class="section-subtitle" style="margin:0 auto;color:rgba(249,244,239,0.5);">Everything we do is guided by these principles.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-icon"><i class="fa-solid fa-seedling"></i></div>
+          <div class="value-title">Freshness First</div>
+          <div class="value-desc">We never serve yesterday's food. Every ingredient is sourced and prepped fresh daily, every single day.</div>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-icon"><i class="fa-solid fa-book"></i></div>
+          <div class="value-title">Respect for Tradition</div>
+          <div class="value-desc">Our recipe has been in the family for decades. We protect it, honour it, and serve it exactly as it was meant to be.</div>
+        </div>
+        <div class="value-card reveal reveal-delay-3">
+          <div class="value-icon"><i class="fa-solid fa-users"></i></div>
+          <div class="value-title">Community First</div>
+          <div class="value-desc">We're not just a stall — we're a neighbourhood fixture. Every regular customer is family to us.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR JOURNEY TIMELINE -->
+  <section class="section">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;" class="timeline-layout">
+        <div class="reveal">
+          <div class="section-label">Our Journey</div>
+          <h2 class="section-title">How We <span>Got Here</span></h2>
+          <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.8;">
+            Every great story starts small. Ours started with a steel pot of tamarind water and a grandmother's recipe that was too good to keep to ourselves.
+          </p>
+        </div>
+        <div class="timeline reveal reveal-delay-2">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2015</div>
+            <div class="timeline-title">The First Stall</div>
+            <div class="timeline-desc">Started with just a small pushcart, 50 pieces of fuchka, and a dream. Sold out in under an hour.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2017</div>
+            <div class="timeline-title">Growing Regulars</div>
+            <div class="timeline-desc">Word spread fast. We outgrew the pushcart and set up our permanent stall spot. Dahi fuchka was introduced.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2020</div>
+            <div class="timeline-title">Surviving & Thriving</div>
+            <div class="timeline-desc">Despite the pandemic, our loyal customers made sure we bounced back stronger. New items added to the menu.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2025</div>
+            <div class="timeline-title">আমরা Fuchkawala Online</div>
+            <div class="timeline-desc">Launched our website to connect with more food lovers. Serving 500+ customers daily and still counting.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section" style="background:var(--dark-2);">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="section-label">The People</div>
+        <h2 class="section-title">Meet the <span>Team</span></h2>
+        <p class="section-subtitle" style="margin:0 auto;">The hands that make every fuchka perfect.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card reveal reveal-delay-1">
+          <div class="team-avatar">র</div>
+          <div class="team-name">Ramesh Uncle</div>
+          <div class="team-role">Founder & Head Chef</div>
+          <div class="team-bio">The man behind the recipe. 30 years of street food experience and the secret keeper of our tamarind water formula.</div>
+        </div>
+        <div class="team-card reveal reveal-delay-2">
+          <div class="team-avatar" style="background:var(--accent);color:var(--dark);">সু</div>
+          <div class="team-name">Suman Bhai</div>
+          <div class="team-role">Operations & Service</div>
+          <div class="team-bio">Manages the stall with a smile. Knows every regular customer by name and how spicy they like it.</div>
+        </div>
+        <div class="team-card reveal reveal-delay-3">
+          <div class="team-avatar" style="background:#2A9D8F;">মি</div>
+          <div class="team-name">Mita Didi</div>
+          <div class="team-role">Prep & Quality Check</div>
+          <div class="team-bio">Every ingredient that goes into your fuchka passes through Mita Didi's hands first. Freshness is her religion.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" style="display:inline-block;margin-bottom:0;">
+          <img src="../assets/images/logo-nav-white.png" alt="আমরা Fuchkawala" style="height:36px;width:auto;object-fit:contain;" />
+        </a>
+          <p class="footer-brand-desc">Authentic Bengali street fuchka, crafted fresh daily with traditional recipes and the finest ingredients.</p>
+          <div class="footer-socials">
+            <a href="https://instagram.com/amrafuchkawala" target="_blank" rel="noopener" class="footer-social-btn"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://facebook.com/amrafuchkawala" target="_blank" rel="noopener" class="footer-social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://wa.me/919382121360" target="_blank" rel="noopener" class="footer-social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Quick Links</div>
+          <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="menu.html">Our Menu</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="about.html">About Us</a>
+            <a href="reviews.html">Reviews</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Our Story</div>
+          <div class="footer-links">
+            <a href="about.html">Our Journey</a>
+            <a href="about.html">Our Values</a>
+            <a href="about.html">The Team</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Find Us</div>
+          <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>110, Moulana Azad Sarani, City Centre, Durgapur 16</span></div>
+          <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>+91 93821 21360</span></div>
+          <div class="footer-contact-item"><i class="fa-solid fa-clock"></i><span>Mon – Sun: 11 AM – 9 PM</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 আমরা Fuchkawala. All rights reserved.</span>
+        <span>Designed with ❤️ for street food lovers</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    // Fix timeline layout responsiveness
+    const tl = document.querySelector('.timeline-layout');
+    if (window.innerWidth < 768 && tl) {
+      tl.style.gridTemplateColumns = '1fr';
+      tl.style.gap = '40px';
+    }
+  </script>
+</body>
+</html>

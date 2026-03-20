@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="আমরা Fuchkawala Reviews — See what our customers are saying." />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Reviews — আমরা Fuchkawala</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .navbar { background: rgba(28,15,0,0.96); backdrop-filter: blur(16px); }
+    body { background: var(--dark); }
+    .section { background: var(--dark); }
+    .section-title { color: var(--text-light); }
+    .section-subtitle { color: rgba(249,244,239,0.55); }
+
+    /* ── Rating Summary ── */
+    .rating-summary {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 48px;
+      align-items: center;
+      background: var(--dark-3);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 56px;
+      box-shadow: var(--shadow-md);
+    }
+    .rating-big {
+      text-align: center;
+      padding-right: 48px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .rating-number {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      font-weight: 800;
+      color: var(--text-light);
+      line-height: 1;
+    }
+    .rating-number span { color: var(--primary); }
+    .rating-stars-big { display: flex; gap: 6px; justify-content: center; margin: 8px 0; font-size: 1.5rem; color: var(--accent); }
+    .rating-count { font-size: 0.85rem; color: rgba(249,244,239,0.45); }
+    .rating-bars { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+    .rating-bar-row { display: flex; align-items: center; gap: 14px; }
+    .rating-bar-label { font-size: 0.85rem; font-weight: 600; color: rgba(249,244,239,0.75); width: 40px; flex-shrink: 0; }
+    .rating-bar-track {
+      flex: 1; height: 8px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .rating-bar-fill {
+      height: 100%; background: var(--primary);
+      border-radius: 99px;
+      transition: width 1s ease;
+    }
+    .rating-bar-pct { font-size: 0.8rem; color: rgba(249,244,239,0.45); width: 36px; flex-shrink: 0; text-align: right; }
+
+    /* ── Reviews Grid ── */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .review-card {
+      background: var(--dark-3);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .review-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(200,90,0,0.25); }
+    .review-top { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+    .review-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      color: #fff;
+      font-family: var(--font-bengali);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .review-name { font-weight: 700; font-size: 0.95rem; color: var(--text-light); }
+    .review-date { font-size: 0.75rem; color: rgba(249,244,239,0.4); margin-top: 2px; }
+    .review-stars { display: flex; gap: 3px; margin-bottom: 12px; color: var(--accent); font-size: 0.9rem; }
+    .review-text { font-size: 0.88rem; color: rgba(249,244,239,0.65); line-height: 1.78; flex: 1; font-style: italic; }
+    .review-tag {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 99px;
+      background: rgba(200,90,0,0.15);
+      color: var(--primary);
+      border: 1px solid rgba(200,90,0,0.25);
+    }
+
+    /* ── Write Review Form ── */
+    .write-review-section { background: var(--dark-2); }
+    .review-form-card {
+      background: var(--dark-3);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      border: 1.5px solid var(--border);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(249,244,239,0.85);
+      margin-bottom: 8px;
+    }
+    .form-input, .form-textarea, .form-select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: rgba(249,244,239,0.85);
+      background: rgba(255,255,255,0.05);
+      transition: var(--transition);
+      outline: none;
+    }
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      border-color: var(--primary);
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 0 0 3px rgba(200,90,0,0.15);
+    }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .star-picker { display: flex; gap: 8px; margin-bottom: 4px; }
+    .star-pick {
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: rgba(255,255,255,0.15);
+      transition: var(--transition);
+      user-select: none;
+    }
+    .star-pick.active, .star-pick:hover { color: var(--accent); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 32px;
+    }
+    .form-success-icon { font-size: 3rem; margin-bottom: 12px; }
+    .form-success h3 { font-weight: 700; color: var(--text-light); margin-bottom: 8px; }
+    .form-success p { color: rgba(249,244,239,0.55); font-size: 0.9rem; }
+
+    @media (max-width: 1024px) { .reviews-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px) {
+      .reviews-grid { grid-template-columns: 1fr; }
+      .rating-summary { grid-template-columns: 1fr; gap: 28px; }
+      .rating-big { padding-right: 0; border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 28px; }
+      .review-form-card { padding: 28px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo" style="padding:4px 0;">
+        <img src="../assets/images/logo-nav-white.png" alt="আমরা Fuchkawala" style="height:36px;width:auto;object-fit:contain;display:block;" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html" class="nav-link">Home</a></li>
+        <li><a href="menu.html" class="nav-link">Menu</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="reviews.html" class="nav-link active">Reviews</a></li>
+        <li><a href="contact.html" class="nav-link nav-cta">Contact Us</a></li>
+      </ul>
+      <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+    <div class="nav-mobile" id="mobileMenu" style="background:#1C0F00;border-top:1px solid rgba(255,255,255,0.1);">
+      <a href="../index.html" class="nav-link" style="color:#FDF6EE;padding:14px 16px;display:block;font-size:1rem;font-weight:500;">Home</a>
+      <a href="menu.html" class="nav-link" style="color:#FDF6EE;padding:14px 16px;display:block;font-size:1rem;font-weight:500;">Menu</a>
+      <a href="gallery.html" class="nav-link" style="color:#FDF6EE;padding:14px 16px;display:block;font-size:1rem;font-weight:500;">Gallery</a>
+      <a href="about.html" class="nav-link" style="color:#FDF6EE;padding:14px 16px;display:block;font-size:1rem;font-weight:500;">About</a>
+      <a href="reviews.html" class="nav-link" style="color:#FDF6EE;padding:14px 16px;display:block;font-size:1rem;font-weight:500;">Reviews</a>
+      <a href="contact.html" class="nav-link nav-cta" style="color:#fff;padding:14px 16px;display:block;font-size:1rem;font-weight:700;background:#C85A00;border-radius:99px;text-align:center;margin-top:8px;">Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div style="position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%, rgba(200,90,0,0.12) 0%, transparent 50%);pointer-events:none;"></div>
+    <div class="container">
+      <div class="page-hero-label">Testimonials</div>
+      <h1>Customer <span>Reviews</span></h1>
+      <p>Don't just take our word for it — hear from the people who eat here every day.</p>
+    </div>
+  </section>
+
+  <!-- REVIEWS SECTION -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Rating Summary -->
+      <div class="rating-summary reveal">
+        <div class="rating-big">
+          <div class="rating-number">4.<span>9</span></div>
+          <div class="rating-stars-big">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <div class="rating-count">Based on 200+ reviews</div>
+        </div>
+        <div class="rating-bars">
+          <div class="rating-bar-row">
+            <div class="rating-bar-label">5 ★</div>
+            <div class="rating-bar-track"><div class="rating-bar-fill" style="width:82%"></div></div>
+            <div class="rating-bar-pct">82%</div>
+          </div>
+          <div class="rating-bar-row">
+            <div class="rating-bar-label">4 ★</div>
+            <div class="rating-bar-track"><div class="rating-bar-fill" style="width:12%"></div></div>
+            <div class="rating-bar-pct">12%</div>
+          </div>
+          <div class="rating-bar-row">
+            <div class="rating-bar-label">3 ★</div>
+            <div class="rating-bar-track"><div class="rating-bar-fill" style="width:4%"></div></div>
+            <div class="rating-bar-pct">4%</div>
+          </div>
+          <div class="rating-bar-row">
+            <div class="rating-bar-label">2 ★</div>
+            <div class="rating-bar-track"><div class="rating-bar-fill" style="width:1%"></div></div>
+            <div class="rating-bar-pct">1%</div>
+          </div>
+          <div class="rating-bar-row">
+            <div class="rating-bar-label">1 ★</div>
+            <div class="rating-bar-track"><div class="rating-bar-fill" style="width:1%"></div></div>
+            <div class="rating-bar-pct">1%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reviews Grid -->
+      <div class="reviews-grid">
+
+        <div class="review-card reveal reveal-delay-1">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#E76F51;">R</div>
+            <div>
+              <div class="review-name">Rajul Khan</div>
+              <div class="review-date">3 months ago · Google</div>
+            </div>
+          </div>
+          <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+          <div class="review-text">"It is a very good point for eating fuchka — they maintain hygiene really well. The place is clean, the ingredients are fresh, and you can see the care that goes into every plate."</div>
+          <div class="review-tag">Jol Fuchka</div>
+        </div>
+
+        <div class="review-card reveal reveal-delay-2">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#2A9D8F;">A</div>
+            <div>
+              <div class="review-name">Anupam Das</div>
+              <div class="review-date">3 months ago · Google</div>
+            </div>
+          </div>
+          <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+          <div class="review-text">"Wonderful service and taste! The staff is friendly and the food is consistently good. Great value for money at around ₹100 per person. Definitely coming back again!"</div>
+          <div class="review-tag">₹100 per person</div>
+        </div>
+
+        <div class="review-card reveal reveal-delay-3">
+          <div class="review-top">
+            <div class="review-avatar" style="background:var(--primary);">I</div>
+            <div>
+              <div class="review-name">Infozraba India</div>
+              <div class="review-date">3 months ago · Google</div>
+            </div>
+          </div>
+          <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <div class="review-text">"Best Fuchka in Town — no contest! The flavours are authentic, the tamarind water is perfectly spiced, and the experience is exactly what street food should feel like. Highly recommended!"</div>
+          <div class="review-tag">Best in Town 🏆</div>
+        </div>
+
+        <div class="review-card reveal reveal-delay-1">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#457B9D;">M</div>
+            <div>
+              <div class="review-name">Moumita Das</div>
+              <div class="review-date">3 months ago · Google</div>
+            </div>
+          </div>
+          <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+          <div class="review-text">"Just falafel — read them, read them, read them! The fuchka here is something else entirely. Priced well at ₹300–400 for a full meal. Fresh ingredients, quick service, absolutely worth every bite."</div>
+          <div class="review-tag">₹300–400 for two</div>
+        </div>
+
+        <div class="review-card reveal reveal-delay-2">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#C0392B;">A</div>
+            <div>
+              <div class="review-name">Ananya Bhattacharya</div>
+              <div class="review-date">3 weeks ago · Google · NEW</div>
+            </div>
+          </div>
+          <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <div class="review-text">"Amazing experience! Super affordable at just ₹100 per person. The fuchka is fresh, the chutney is to die for, and the service is warm and quick. One of the best street food spots in Durgapur!"</div>
+          <div class="review-tag">₹100 per person</div>
+        </div>
+
+        <div class="review-card reveal reveal-delay-3">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#6B4226;">R</div>
+            <div>
+              <div class="review-name">Rahul Bhattacharya</div>
+              <div class="review-date">3 weeks ago · Google · NEW</div>
+            </div>
+          </div>
+          <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <div class="review-text">"The food here is outstanding — fresh, flavourful and prepared with real care. The service is excellent and the stall is well maintained. আমরা Fuchkawala is a must visit in City Centre, Durgapur!"</div>
+          <div class="review-tag">City Centre, Durgapur</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WRITE A REVIEW -->
+  <section class="section write-review-section">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="section-label">Share Your Experience</div>
+        <h2 class="section-title">Write a <span>Review</span></h2>
+        <p class="section-subtitle" style="margin:0 auto;">Had a great fuchka? Let others know!</p>
+      </div>
+      <div class="review-form-card reveal reveal-delay-1">
+        <div id="reviewForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Your Name *</label>
+              <!-- Honeypot field hidden from real users -->
+              <input type="text" name="website_url" style="display:none;" tabindex="-1" autocomplete="off" />
+              <input type="text" class="form-input" id="reviewName" placeholder="e.g. Rahul Das" maxlength="60" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Item You Tried</label>
+              <select class="form-select" id="reviewItem">
+                <option value="">Select an item...</option>
+                <option>জলভরা ফুচকা</option>
+                <option>দই ফুচকা</option>
+                <option>মশলা ফুচকা</option>
+                <option>চিজ ফুচকা</option>
+                <option>আলু চাট</option>
+                <option>ঘুগনি চাট</option>
+                <option>পার্টি প্লেটার</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Your Rating *</label>
+            <div class="star-picker" id="starPicker">
+              <span class="star-pick" data-val="1">★</span>
+              <span class="star-pick" data-val="2">★</span>
+              <span class="star-pick" data-val="3">★</span>
+              <span class="star-pick" data-val="4">★</span>
+              <span class="star-pick" data-val="5">★</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Your Review *</label>
+            <textarea class="form-textarea" id="reviewText" placeholder="Tell us about your experience..." maxlength="500" required></textarea>
+          </div>
+          <button class="btn btn-primary" onclick="submitReview()" style="width:100%;justify-content:center;">
+            <i class="fa-solid fa-paper-plane"></i> Submit Review
+          </button>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-icon">🎉</div>
+          <h3>Thank you for your review!</h3>
+          <p>We appreciate you taking the time to share your experience. Your feedback means everything to us.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" style="display:inline-block;margin-bottom:0;">
+          <img src="../assets/images/logo-nav-white.png" alt="আমরা Fuchkawala" style="height:36px;width:auto;object-fit:contain;" />
+        </a>
+          <p class="footer-brand-desc">Authentic Bengali street fuchka, crafted fresh daily with traditional recipes and the finest ingredients.</p>
+          <div class="footer-socials">
+            <a href="https://instagram.com/amrafuchkawala" target="_blank" rel="noopener" class="footer-social-btn"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://facebook.com/amrafuchkawala" target="_blank" rel="noopener" class="footer-social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://wa.me/919382121360" target="_blank" rel="noopener" class="footer-social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Quick Links</div>
+          <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="menu.html">Our Menu</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="about.html">About Us</a>
+            <a href="reviews.html">Reviews</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Reviews</div>
+          <div class="footer-links">
+            <a href="reviews.html">All Reviews</a>
+            <a href="reviews.html#write">Write a Review</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Find Us</div>
+          <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>110, Moulana Azad Sarani, City Centre, Durgapur 16</span></div>
+          <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>+91 93821 21360</span></div>
+          <div class="footer-contact-item"><i class="fa-solid fa-clock"></i><span>Mon – Sun: 11 AM – 9 PM</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 আমরা Fuchkawala. All rights reserved.</span>
+        <span>Designed with ❤️ for street food lovers</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    // Star picker
+    let selectedRating = 0;
+    const stars = document.querySelectorAll('.star-pick');
+    stars.forEach(star => {
+      star.addEventListener('mouseenter', () => {
+        const val = +star.dataset.val;
+        stars.forEach(s => s.classList.toggle('active', +s.dataset.val <= val));
+      });
+      star.addEventListener('mouseleave', () => {
+        stars.forEach(s => s.classList.toggle('active', +s.dataset.val <= selectedRating));
+      });
+      star.addEventListener('click', () => {
+        selectedRating = +star.dataset.val;
+        stars.forEach(s => s.classList.toggle('active', +s.dataset.val <= selectedRating));
+      });
+    });
+
+    function submitReview() {
+      const name = document.getElementById('reviewName').value.trim();
+      const text = document.getElementById('reviewText').value.trim();
+      const honeypot = document.querySelector('input[name="website_url"]').value;
+
+      // Bot check
+      if (honeypot) return;
+
+      if (!name || !text || selectedRating === 0) {
+        alert('Please fill in your name, rating, and review before submitting.');
+        return;
+      }
+      if (text.length < 10) {
+        alert('Please write a slightly longer review (at least 10 characters).');
+        return;
+      }
+
+      document.getElementById('reviewForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
