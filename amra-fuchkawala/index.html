@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="আমরা Fuchkawala — Authentic street-style fuchka in the heart of the city. Fresh, bold, unforgettable." />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: https:;" />
+  <title>আমরা Fuchkawala — Home</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body { background: var(--dark) !important; }
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #2A1800 0%, #1C0F00 60%, #3A1A00 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding-top: var(--nav-height);
+    }
+    .hero-bg-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(200,90,0,0.22) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(192,57,43,0.10) 0%, transparent 40%),
+        radial-gradient(circle at 60% 80%, rgba(200,90,0,0.08) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    .hero-dots {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(200,90,0,0.10);
+      border: 1px solid rgba(200,90,0,0.22);
+      border-radius: 99px;
+      padding: 6px 16px 6px 8px;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow-dot {
+      width: 8px; height: 8px;
+      background: var(--primary);
+      border-radius: 50%;
+      position: relative;
+    }
+    .hero-eyebrow-dot::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid var(--primary);
+      animation: pulse-ring 1.5s ease-out infinite;
+    }
+    .hero-eyebrow span {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+    .hero-title {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.05;
+      margin-bottom: 8px;
+    }
+    .hero-title-bengali {
+      font-family: var(--font-bengali);
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .hero-title-english {
+      display: block;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 600;
+      color: rgba(249,244,239,0.55);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: rgba(249,244,239,0.65);
+      line-height: 1.8;
+      max-width: 440px;
+      margin-bottom: 40px;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 48px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-light);
+      line-height: 1;
+    }
+    .hero-stat-num span { color: var(--primary); }
+    .hero-stat-label {
+      font-size: 0.78rem;
+      color: rgba(249,244,239,0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+    }
+    /* Hero right — visual card */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-card-main {
+      width: 320px; height: 380px;
+      background: #2A1800;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      animation: float 5s ease-in-out infinite;
+      box-shadow: var(--shadow-md);
+    }
+    .hero-card-main::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+    .hero-food-emoji {
+      font-size: 6rem;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 8px 24px rgba(200,90,0,0.2));
+    }
+    .hero-card-tag {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 99px;
+      margin-bottom: 12px;
+    }
+    .hero-card-title {
+      font-family: var(--font-bengali);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-light);
+    }
+    .hero-card-sub {
+      font-size: 0.82rem;
+      color: rgba(249,244,239,0.45);
+      margin-top: 4px;
+    }
+    /* Floating badges */
+    .hero-badge {
+      position: absolute;
+      background: #2A1800;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--shadow-md);
+    }
+    .hero-badge-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: rgba(200,90,0,0.15);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .hero-badge-text { font-size: 0.75rem; color: rgba(249,244,239,0.75); font-weight: 500; }
+    .hero-badge-text strong { display: block; font-size: 0.88rem; color: var(--text-light); }
+    .hb-1 { top: 16px; left: -40px; animation: float 4s ease-in-out infinite 0.5s; }
+    .hb-2 { bottom: 48px; left: -48px; animation: float 4.5s ease-in-out infinite 1s; }
+    .hb-3 { top: 40px; right: -40px; animation: float 3.8s ease-in-out infinite 0.3s; }
+
+    /* ── Marquee ── */
+    .marquee-strip {
+      background: var(--primary);
+      padding: 14px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-track {
+      display: inline-flex;
+      gap: 0;
+      animation: marquee 20s linear infinite;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 28px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+    }
+    .marquee-item i { color: var(--accent); font-size: 0.7rem; }
+
+    /* ── Why Us ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .why-card {
+      background: var(--dark-3);
+      border-radius: var(--radius-md);
+      padding: 32px 24px;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .why-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: var(--transition);
+    }
+    .why-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .why-card:hover::after { transform: scaleX(1); }
+    .why-icon {
+      width: 52px; height: 52px;
+      background: rgba(200,90,0,0.15);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    .why-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+    .why-desc { font-size: 0.88rem; color: rgba(249,244,239,0.55); line-height: 1.7; }
+
+    /* ── Featured Items ── */
+    .featured-section { background: var(--dark-2); }
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .featured-card {
+      background: #2A1800;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1.5px solid var(--border);
+      transition: var(--transition);
+    }
+    .featured-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(200,90,0,0.25);
+      box-shadow: var(--shadow-md);
+    }
+    .featured-card-img {
+      height: 200px;
+      background: var(--dark-2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .featured-card-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, var(--dark-3));
+    }
+    .featured-card-body { padding: 20px 24px 24px; }
+    .featured-card-name {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-light);
+      margin-bottom: 6px;
+    }
+    .featured-card-desc { font-size: 0.85rem; color: rgba(249,244,239,0.55); margin-bottom: 16px; line-height: 1.6; }
+    .featured-card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .featured-card-price {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .featured-card-price span { font-size: 0.8rem; color: rgba(249,244,239,0.55); font-weight: 400; }
+
+    /* ── Testimonials preview ── */
+    .testimonial-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testi-card {
+      background: var(--dark-3);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: var(--transition);
+    }
+    .testi-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .testi-top { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    .testi-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      color: #fff;
+      font-family: var(--font-bengali);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .testi-name { font-weight: 700; font-size: 0.95rem; color: var(--text-light); }
+    .testi-date { font-size: 0.76rem; color: rgba(249,244,239,0.4); }
+    .testi-text { font-size: 0.88rem; color: rgba(249,244,239,0.6); line-height: 1.75; font-style: italic; }
+
+    /* ── CTA Banner ── */
+    .cta-banner {
+      background: var(--primary);
+      border-radius: var(--radius-lg);
+      padding: 64px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      right: -80px; top: -80px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+    }
+    .cta-banner::after {
+      content: '';
+      position: absolute;
+      right: 80px; bottom: -60px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.07);
+    }
+    .cta-text { position: relative; z-index: 1; }
+    .cta-text h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .cta-text p { color: rgba(255,255,255,0.8); font-size: 1rem; }
+    .cta-actions { display: flex; gap: 12px; flex-shrink: 0; position: relative; z-index: 1; }
+    .btn-white {
+      background: #fff;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .btn-white:hover {
+      background: var(--dark-3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-content { grid-template-columns: 1fr; text-align: center; }
+      .hero-visual { display: none; }
+      .hero-desc { max-width: 100%; }
+      .hero-actions { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .featured-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonial-strip { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .why-grid { grid-template-columns: 1fr; }
+      .featured-grid { grid-template-columns: 1fr; }
+      .testimonial-strip { grid-template-columns: 1fr; }
+      .cta-banner { flex-direction: column; text-align: center; padding: 40px 28px; }
+      .cta-actions { justify-content: center; flex-wrap: wrap; }
+      .hero-stats { flex-wrap: wrap; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════ NAVBAR ═══════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo" style="padding:4px 0;">
+        <img src="assets/images/logo-nav-white.png" alt="আমরা Fuchkawala" style="height:36px;width:auto;object-fit:contain;display:block;" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link" data-page="index.html">Home</a></li>
+        <li><a href="pages/menu.html" class="nav-link" data-page="menu.html">Menu</a></li>
+        <li><a href="pages/gallery.html" class="nav-link" data-page="gallery.html">Gallery</a></li>
+        <li><a href="pages/about.html" class="nav-link" data-page="about.html">About</a></li>
+        <li><a href="pages/reviews.html" class="nav-link" data-page="reviews.html">Reviews</a></li>
+        <li><a href="pages/contact.html" class="nav-link nav-cta" data-page="contact.html">Contact Us</a></li>
+      </ul>
+      <div class="nav-hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="nav-mobile" id="mobileMenu" style="background:#1C0F00;border-top:1px solid rgba(255,255,255,0.1);">
+      <a href="index.html" class="nav-link" data-page="index.html" style="color:#FDF6EE;padding:14px 16px;display:block;font-size:1rem;font-weight:500;">Home</a>
+      <a href="pages/menu.html" class="nav-link" data-page="menu.html" style="color:#FDF6EE;padding:14px 16px;display:block;font-size:1rem;font-weight:500;">Menu</a>
+      <a href="pages/gallery.html" class="nav-link" data-page="gallery.html" style="color:#FDF6EE;padding:14px 16px;display:block;font-size:1rem;font-weight:500;">Gallery</a>
+      <a href="pages/about.html" class="nav-link" data-page="about.html" style="color:#FDF6EE;padding:14px 16px;display:block;font-size:1rem;font-weight:500;">About</a>
+      <a href="pages/reviews.html" class="nav-link" data-page="reviews.html" style="color:#FDF6EE;padding:14px 16px;display:block;font-size:1rem;font-weight:500;">Reviews</a>
+      <a href="pages/contact.html" class="nav-link nav-cta" data-page="contact.html" style="color:#fff;padding:14px 16px;display:block;font-size:1rem;font-weight:700;background:#C85A00;border-radius:99px;text-align:center;margin-top:8px;">Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-dots"></div>
+    <div class="container">
+      <div class="hero-content">
+        <!-- Left -->
+        <div>
+          <div class="hero-eyebrow anim-fade-up">
+            <div class="hero-eyebrow-dot"></div>
+            <span>Now Open · Fresh Daily</span>
+          </div>
+          <img src="assets/images/logo-white.png" alt="আমরা Fuchkawala" class="anim-fade-up delay-1" style="width:480px;max-width:100%;object-fit:contain;margin-bottom:8px;filter:drop-shadow(0 8px 32px rgba(200,90,0,0.3));" />
+          <span class="hero-title-english anim-fade-up delay-2" style="display:block;font-size:clamp(0.85rem,1.5vw,1.1rem);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(249,244,239,0.45);margin-bottom:20px;">Authentic Street Fuchka</span>
+          <p class="hero-desc anim-fade-up delay-2">
+            The crunch, the tang, the burst of flavour — every fuchka is handcrafted
+            fresh, just the way it's meant to be. Come taste the street, elevated.
+          </p>
+          <div class="hero-actions anim-fade-up delay-3">
+            <a href="pages/menu.html" class="btn btn-primary">
+              <i class="fa-solid fa-bowl-food"></i> Explore Menu
+            </a>
+            <a href="pages/contact.html" class="btn btn-ghost">
+              <i class="fa-solid fa-location-dot"></i> Find Us
+            </a>
+          </div>
+          <div class="hero-stats anim-fade-up delay-4">
+            <div>
+              <div class="hero-stat-num">500<span>+</span></div>
+              <div class="hero-stat-label">Happy Customers Daily</div>
+            </div>
+            <div>
+              <div class="hero-stat-num">10<span>+</span></div>
+              <div class="hero-stat-label">Varieties of Fuchka</div>
+            </div>
+            <div>
+              <div class="hero-stat-num">5<span>★</span></div>
+              <div class="hero-stat-label">Avg. Rating</div>
+            </div>
+          </div>
+        </div>
+        <!-- Right Visual -->
+        <div class="hero-visual">
+          <div class="hero-card-main">
+            <img src="assets/images/logo-white.png" alt="আমরা Fuchkawala" style="width:280px;max-width:80%;object-fit:contain;margin-bottom:8px;" />
+            <div class="hero-card-tag">Fan Favourite</div>
+            <div class="hero-card-title">জলভরা ফুচকা</div>
+            <div class="hero-card-sub">Tamarind Water Fuchka</div>
+          </div>
+          <div class="hero-badge hb-1">
+            <div class="hero-badge-icon"><i class="fa-solid fa-fire"></i></div>
+            <div class="hero-badge-text"><strong>Spicy Options</strong>Mild to Extra Hot</div>
+          </div>
+          <div class="hero-badge hb-2">
+            <div class="hero-badge-icon"><i class="fa-solid fa-star"></i></div>
+            <div class="hero-badge-text"><strong>4.9 / 5 Stars</strong>200+ Reviews</div>
+          </div>
+          <div class="hero-badge hb-3">
+            <div class="hero-badge-icon"><i class="fa-solid fa-leaf"></i></div>
+            <div class="hero-badge-text"><strong>Fresh Daily</strong>No Preservatives</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ MARQUEE ═══════════ -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <!-- Duplicated for seamless loop -->
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Tamarind Fuchka</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Dahi Fuchka</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Spicy Aloo Filling</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Masala Fuchka</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Sweet Chutney</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Extra Tamarind</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Cheese Fuchka</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Open Daily</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Tamarind Fuchka</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Dahi Fuchka</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Spicy Aloo Filling</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Masala Fuchka</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Sweet Chutney</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Extra Tamarind</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Cheese Fuchka</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Open Daily</span>
+    </div>
+  </div>
+
+  <!-- ═══════════ WHY US ═══════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="section-label">Why Choose Us</div>
+        <h2 class="section-title">Crafted with <span>Passion</span></h2>
+        <p class="section-subtitle" style="margin:0 auto;">Every piece of fuchka tells a story of tradition, freshness, and love.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon"><i class="fa-solid fa-seedling"></i></div>
+          <div class="why-title">100% Fresh Ingredients</div>
+          <div class="why-desc">Sourced fresh every morning. No frozen, no packaged — just real food the way it should be.</div>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+          <div class="why-title">Made to Your Spice</div>
+          <div class="why-desc">Mild, medium, hot or volcano — we tailor every serving to your heat preference.</div>
+        </div>
+        <div class="why-card reveal reveal-delay-3">
+          <div class="why-icon"><i class="fa-solid fa-clock"></i></div>
+          <div class="why-title">Fast Service</div>
+          <div class="why-desc">In and out in minutes. We respect your time without ever compromising on taste.</div>
+        </div>
+        <div class="why-card reveal reveal-delay-4">
+          <div class="why-icon"><i class="fa-solid fa-heart"></i></div>
+          <div class="why-title">Family Recipe</div>
+          <div class="why-desc">A recipe passed down through generations, staying true to authentic Bengali street flavours.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FEATURED ITEMS ═══════════ -->
+  <section class="section featured-section">
+    <div class="container">
+      <div class="section-header reveal" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="section-label" style="color:var(--primary);">Most Loved</div>
+          <h2 class="section-title" style="color:var(--text-light);margin-bottom:0;">Fan <span>Favourites</span></h2>
+        </div>
+        <a href="pages/menu.html" class="btn btn-outline" style="color:var(--primary);border-color:var(--primary);">
+          Full Menu <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="featured-grid">
+        <div class="featured-card reveal reveal-delay-1">
+          <div class="featured-card-img">🍢</div>
+          <div class="featured-card-body">
+            <span class="badge badge-primary" style="margin-bottom:10px;">Best Seller</span>
+            <div class="featured-card-name">জলভরা ফুচকা</div>
+            <div class="featured-card-desc">Classic tamarind water fuchka with spiced potato filling. The one that started it all.</div>
+            <div class="featured-card-footer">
+              <div class="featured-card-price">₹30 <span>/ 6 pcs</span></div>
+              <div class="stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="featured-card reveal reveal-delay-2">
+          <div class="featured-card-img">🥣</div>
+          <div class="featured-card-body">
+            <span class="badge badge-accent" style="margin-bottom:10px;">New</span>
+            <div class="featured-card-name">দই ফুচকা</div>
+            <div class="featured-card-desc">Crispy fuchka dunked in creamy yoghurt with sweet tamarind chutney on top.</div>
+            <div class="featured-card-footer">
+              <div class="featured-card-price">₹40 <span>/ 6 pcs</span></div>
+              <div class="stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="featured-card reveal reveal-delay-3">
+          <div class="featured-card-img">🌶️</div>
+          <div class="featured-card-body">
+            <span class="badge badge-outline" style="color:var(--accent);border-color:var(--accent);margin-bottom:10px;">Spicy</span>
+            <div class="featured-card-name">মশলা ফুচকা</div>
+            <div class="featured-card-desc">Extra spicy masala filling with green chillies and a fiery tamarind water kick.</div>
+            <div class="featured-card-footer">
+              <div class="featured-card-price">₹35 <span>/ 6 pcs</span></div>
+              <div class="stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ REVIEWS PREVIEW ═══════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="section-label">What People Say</div>
+          <h2 class="section-title">Loved by <span>Thousands</span></h2>
+        </div>
+        <a href="pages/reviews.html" class="btn btn-outline">
+          All Reviews <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="testimonial-strip">
+        <div class="testi-card reveal reveal-delay-1">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:var(--primary);">I</div>
+            <div>
+              <div class="testi-name">Infozraba India</div>
+              <div class="stars" style="margin-top:3px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            </div>
+          </div>
+          <p class="testi-text">"Best Fuchka in Town — the flavours are authentic and the experience is exactly what street food should feel like!"</p>
+        </div>
+        <div class="testi-card reveal reveal-delay-2">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#C0392B;">A</div>
+            <div>
+              <div class="testi-name">Ananya Bhattacharya</div>
+              <div class="stars" style="margin-top:3px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            </div>
+          </div>
+          <p class="testi-text">"Amazing experience! Super affordable, the fuchka is fresh, the chutney is to die for. One of the best street food spots in Durgapur!"</p>
+        </div>
+        <div class="testi-card reveal reveal-delay-3">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#2A9D8F;">A</div>
+            <div>
+              <div class="testi-name">Anupam Das</div>
+              <div class="stars" style="margin-top:3px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+            </div>
+          </div>
+          <p class="testi-text">"Wonderful service and taste! Great value for money. The staff is friendly and the food is consistently good every single visit."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA BANNER ═══════════ -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <div class="cta-text">
+          <h2>Hungry? Come Find Us! 🍢</h2>
+          <p>Open daily — fresh fuchka served from morning till late evening.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="pages/contact.html" class="btn btn-white">
+            <i class="fa-solid fa-location-dot"></i> Get Directions
+          </a>
+          <a href="pages/menu.html" class="btn btn-ghost" style="border-color:rgba(255,255,255,0.4);color:#fff;">
+            View Full Menu
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div>
+          <a href="index.html" style="display:inline-block;margin-bottom:0;">
+          <img src="assets/images/logo-nav-white.png" alt="আমরা Fuchkawala" style="height:36px;width:auto;object-fit:contain;" />
+        </a>
+          <p class="footer-brand-desc">
+            Authentic Bengali street fuchka, crafted fresh daily with traditional recipes and the finest ingredients. Taste the tradition.
+          </p>
+          <div class="footer-socials">
+            <a href="https://instagram.com/amrafuchkawala" target="_blank" rel="noopener" class="footer-social-btn"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://facebook.com/amrafuchkawala" target="_blank" rel="noopener" class="footer-social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://wa.me/919382121360" target="_blank" rel="noopener" class="footer-social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://youtube.com/@amrafuchkawala" target="_blank" rel="noopener" class="footer-social-btn"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://linkedin.com/company/amrafuchkawala" target="_blank" rel="noopener" class="footer-social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <!-- Quick Links -->
+        <div>
+          <div class="footer-col-title">Quick Links</div>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="pages/menu.html">Our Menu</a>
+            <a href="pages/gallery.html">Gallery</a>
+            <a href="pages/about.html">About Us</a>
+            <a href="pages/reviews.html">Reviews</a>
+          </div>
+        </div>
+        <!-- Menu -->
+        <div>
+          <div class="footer-col-title">Our Menu</div>
+          <div class="footer-links">
+            <a href="pages/menu.html">জলভরা ফুচকা</a>
+            <a href="pages/menu.html">দই ফুচকা</a>
+            <a href="pages/menu.html">মশলা ফুচকা</a>
+            <a href="pages/menu.html">চিলি ফুচকা</a>
+            <a href="pages/menu.html">চাট</a>
+          </div>
+        </div>
+        <!-- Contact -->
+        <div>
+          <div class="footer-col-title">Find Us</div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>110, Moulana Azad Sarani, City Centre, Durgapur 16</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <span>+91 93821 21360</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-clock"></i>
+            <span>Mon – Sun: 11:00 AM – 9:00 PM</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span>amrafuchkawala@gmail.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 আমরা Fuchkawala. All rights reserved.</span>
+        <span>Designed with ❤️ for street food lovers</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
